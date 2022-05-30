@@ -1,6 +1,6 @@
 {
   "name": "umi-request-progress",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "umi-request-progress 是 网络请求库 umi-request 的一个内核中间件，扩展了 umi-request 使其支持 上传进度 和 下载进度",
   "main": "dist/umi-request-progress.umd.js",
   "module": "dist/umi-request-progress.es.js",
