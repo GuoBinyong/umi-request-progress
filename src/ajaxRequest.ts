@@ -1,5 +1,13 @@
 import { RequestOptionsInit } from 'umi-request';
-
+/**
+ * 使用 XMLHttpRequest 发送请求
+ * @param url - 请求的 url
+ * @param options - 请求的选项
+ * @returns 响应内容的 Promise
+ * @internal
+ */
+export default function ajaxRequest(url: string, options: {parseResponse:true} & Omit<RequestOptionsInit,"parseResponse">):Promise<string>;
+export default function ajaxRequest(url: string, options: RequestOptionsInit):Promise<any>;
 export default function ajaxRequest(url: string, options: RequestOptionsInit) {
   return new Promise(function (resolve, reject) {
     const method = options.method ?? 'get';

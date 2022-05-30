@@ -2,6 +2,8 @@
  * umi-request 的 进度 中间件
  * @remarks
  * umi-request 不支持上传 和 下载 的进度事件，通过 本中间件，可让 umi-request 支持 上传 与 下载的进度事件
+ * 
+ * @packageDocumentation
  */
 
 
@@ -11,10 +13,19 @@ import ajaxRequest from './ajaxRequest';
 /**
  * 进度事件的回调函数
  */
-type ProgressHandler = (this: XMLHttpRequest, ev: ProgressEvent) => any
+export type ProgressHandler = (this: XMLHttpRequest, ev: ProgressEvent) => any
 
 
+/**
+ * 扩展
+ * @public
+ */
 declare module 'umi-request' {
+
+    /**
+     * 扩展 umi-request 的请求选项 RequestOptionsInit
+     * @public
+     */
   export interface RequestOptionsInit {
     /**
      * 上传进度事件的回调函数
