@@ -1,5 +1,5 @@
 # 此文件的默认名字为：.gitignore；是git的忽略文件的配置文件，描述了git需要忽略的文件
-# https://github.com/GuoBinyong/library-vite-template
+# https://github.com/GuoBinyong/umi-request-progress
 
 #WebStorm生成的用来存放项目配置的目录
 .idea

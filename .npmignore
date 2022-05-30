@@ -1,5 +1,5 @@
 # npm 上传包时的忽略配置文件
-# https://github.com/GuoBinyong/library-vite-template
+# https://github.com/GuoBinyong/umi-request-progress
 
 # 构建配置相关
 tsconfig.json
