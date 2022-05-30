@@ -14,7 +14,7 @@ umi-request 不支持上传 和 下载 的进度事件，通过 本中间件，�
 
 |  Variable | Description |
 |  --- | --- |
-|  [progressMiddleware](./umi-request-progress.progressmiddleware.md) | umi-request 的 进度 中间件  支持 上传进度 和 下载进度。此中间件是内核中间件事，注册时最好使用选项 <code>{ core: true }</code>。 |
+|  [progressMiddleware](./umi-request-progress.progressmiddleware.md) | umi-request 的 进度 中间件 |
 
 ## Type Aliases
 

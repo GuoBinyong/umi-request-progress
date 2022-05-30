@@ -4,13 +4,17 @@
 
 ## progressMiddleware variable
 
-umi-request 的 进度 中间件  支持 上传进度 和 下载进度。此中间件是内核中间件事，注册时最好使用选项 `{ core: true }`<!-- -->。
+umi-request 的 进度 中间件
 
 <b>Signature:</b>
 
 ```typescript
 progressMiddleware: OnionMiddleware
 ```
+
+## Remarks
+
+支持 上传进度 和 下载进度。此中间件是内核中间件事，注册时最好使用选项 `{ core: true }`<!-- -->。
 
 ## Example
 
