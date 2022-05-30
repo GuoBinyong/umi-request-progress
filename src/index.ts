@@ -46,23 +46,25 @@ declare module 'umi-request' {
  * 
  * @example
  * ```ts
+ * // 导入 umi-request
  * import request from 'umi-request';
+ * // umi-request-progress
  * import progressMiddleware from 'umi-request-progress';
  * 
- * // 注册中间件
+ * // 注册内核中间件
  * request.use(progressMiddleware, { core: true });
  * 
  * // 上传文件
  * request("/file/upload",{
- * ...otherOptions,
- * //上传进度事件的回调函数
- * onReqProgress:function( ev: ProgressEvent){
- *   console.log(ev)
- * },
- * //下载进度事件的回调函数
- * onResProgress:function( ev: ProgressEvent){
- *   console.log(ev)
- * },
+ *    ...otherOptions,
+ *    //上传进度事件的回调函数
+ *    onReqProgress:function( ev: ProgressEvent){
+ *      console.log(ev)
+ *    },
+ *    //下载进度事件的回调函数
+ *    onResProgress:function( ev: ProgressEvent){
+ *      console.log(ev)
+ *    },
  * });
  * ```
  * 
