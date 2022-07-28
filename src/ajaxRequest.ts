@@ -1,4 +1,4 @@
-import { RequestOptionsInit } from 'umi-request';
+import { RequestOptionsInit} from 'umi-request';
 /**
  * 使用 XMLHttpRequest 发送请求
  * @param url - 请求的 url
@@ -20,9 +20,18 @@ export default function ajaxRequest(url: string, options: RequestOptionsInit) {
       responseType,
       body,
       parseResponse,
+      timeout,
+      cancelToken,
+      signal
     } = options;
 
     const xhr = new XMLHttpRequest();
+
+    // 时间超时
+    if (timeout != null){
+      xhr.timeout = timeout;
+    }
+
 
     switch (credentials) {
       case 'include': {
@@ -42,9 +51,36 @@ export default function ajaxRequest(url: string, options: RequestOptionsInit) {
 
     xhr.open(method, url);
 
-    for (const [key, value] of Object.entries(headers)) {
+
+    // 处理 headers
+    let headersEntries:string[][] = [];
+    if (Array.isArray(headers)){
+      headersEntries = headers;
+    }else if (headers instanceof Headers){
+      headers.forEach((value, key)=>{
+        headersEntries.push([key,value])
+      });
+    }else {
+      headersEntries = Object.entries(headers)
+    }
+
+    for (const [key, value] of headersEntries) {
       xhr.setRequestHeader(key, value);
     }
+
+
+    if (cancelToken){
+      cancelToken.promise.then(function(cancel){
+        xhr.abort();
+      });
+    }
+
+    if (signal){
+      signal.addEventListener("abort",function(){
+        xhr.abort();
+      },{once:true})
+    }
+
 
     xhr.onload = (e) =>
       resolve(parseResponse === false ? xhr.responseText : xhr.response);
